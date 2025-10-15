@@ -1,0 +1,44 @@
+#include "cities/cities.h"
+#include "display/display.h"
+#include "solver/solver.h"
+
+#include "utils.h"
+
+#include <stdio.h>
+
+typedef enum
+{
+	MODE_RANDOM,									// generate cities randomly.
+	MODE_ARGS,										// input cities via cli arguments.
+	MODE_STD,											// input cities via stdin.
+} Mode;
+
+typedef enum
+{
+	ACTION_DISPLAY,
+	ACTION_SOLVE,
+
+	ACTION_HELP,
+} Action;
+
+typedef struct
+{
+	int     ok;										// whether parsing was successful
+	size_t  argc;				  				// number of command line arguments
+	char    **argv;               // command line arguments
+	Mode    mode;									// input mode for cities
+	Action  action;								// action that will be executed
+	size_t  seed;									// seed for RNG
+	int64_t min, max;							// range [min;max) coordinates for cities
+	size_t  temp;									// temperature for SA
+	size_t  M;                    // M-parameter for SA
+	size_t  m;					  				// m-parameter for SA
+} Config;
+
+																// parses arguments and adjusts global
+																// configuration g_config
+Config parse_arguments(size_t argc, char **argv); 
+
+void execute(Config config);		// execute the program based on the config
+
+void usage(void);								// displays usage information.
