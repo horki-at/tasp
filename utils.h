@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+typedef int8_t  b8;
 typedef int64_t i64;
 typedef size_t  usize;
 
