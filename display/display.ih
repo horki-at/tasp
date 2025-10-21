@@ -1,4 +1,0 @@
-#include "display.h"
-
-#include <inttypes.h>
-#include <stdio.h>
