@@ -1,0 +1,46 @@
+#include "graph/graph.h"
+#include "solve/solve.h"
+
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <getopt.h>
+
+typedef enum
+{
+	ACTION_PLOT,									// plot temperature - cost
+	ACTION_SOLVE,                 // print the resulting path
+	ACTION_SOLVE_VIS,             // visualize the resulting path
+	ACTION_GRAPH,									// print the resulting graph
+	ACTION_GRAPH_VIS,							// visualize the resulting graph
+} Action;
+
+typedef enum 
+{
+	MODE_RANDOM,									// generate cities randomly
+	MODE_STDIN,										// input cities via stdin
+	MODE_INVALID,
+} Mode;
+
+typedef struct
+{
+	int ok;												// if parsing is successful
+	size_t argc;									// number of variadic arguments (...args)
+	char **argv;									// variadic arguments (...args)
+	Mode mode;										// input mode for vertices
+	Action action; 								// action to perform
+	size_t seed;									// seed for random number generator
+	size_t size;                  // #vertices to randomly generate
+	int min;											// min possible coordinate
+	int max;											// max possible coordinate
+	float T;											// temperature for SA
+	float T_aim;									// desired temperature for SA
+	size_t m;											// m-parameter for SA
+	size_t noimpr_aim;            // desired #iterations with no improvement
+} Config;
+
+void usage(char const *progname);
+Config parse_arguments(int argc, char **argv); 
+
+void execute(Config config);

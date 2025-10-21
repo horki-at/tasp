@@ -1,0 +1,13 @@
+#include "solve.h"
+
+#include "../path/path.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+// Update the best path with candidate, and return the cost of the new path.
+// Update conditions:
+// * Cost(candidate) < Cost(best)  => always accept 
+// * Cost(candidate) >= Cost(best) => accept with prob = exp(-deltaCost / T)
+float update(Graph graph, size_t *best, size_t *candidate, float T);

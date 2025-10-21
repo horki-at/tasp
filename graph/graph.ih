@@ -1,0 +1,7 @@
+#include "graph.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void precompute_distances(Graph *graph);

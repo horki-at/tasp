@@ -1,0 +1,19 @@
+#include "path.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+
+typedef struct
+{
+	size_t idx1;
+	size_t idx2;
+} Pair;
+
+void swap(size_t *a, size_t *b);	// swap two size_t numbers
+
+Pair get_random_pair(size_t size);
+
+void path_shuffle_invert(size_t *path, size_t size);
+void path_shuffle_swap(size_t *path, size_t size);
+void path_shuffle_shift(size_t *path, size_t size);
