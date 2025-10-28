@@ -42,18 +42,28 @@ tasp --output="att48_path.png" --temp=5000 -m40 -Mstd -Apath_vis < att48.txt
 <img src="img/att48_path.png" width=350>
 
 
-# Prerequisites
+# Installation and building
+The program is tested only on Linux (Debian Trixie). Probably, I will make sure it works on Windows and MacOS as well. It is not on my TODO though.
+
+## Prerequisites
 Before building and/or installing, make sure you have the following packages
 installed:
 - GNU Plot
 - GNU Make
 - gcc
+- git
+- ccache
+
+On Debian run:
+```bash
+sudo apt-get install git make gnuplot build-essential ccache
+```
 
 # How to build/install
 To build, perform the following commands:
 ```bash
 git clone https://github.com/horki-at/tasp 
-cd tsp/
+cd tasp/
 make release
 ```
 The executable file will be named `tasp` and located in tasp/ repository.
@@ -61,7 +71,7 @@ The executable file will be named `tasp` and located in tasp/ repository.
 To install, perform the following commands:
 ```bash
 git clone https://github.com/horki-at/tasp
-cd tsp/
+cd tasp/
 make install
 ```
 To install system-wide, use `sudo make install`. Now, you should be able to
