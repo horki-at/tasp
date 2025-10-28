@@ -52,15 +52,15 @@ installed:
 # How to build/install
 To build, perform the following commands:
 ```bash
-git clone https://github.com/horki-at/tsp 
+git clone https://github.com/horki-at/tasp 
 cd tsp/
 make release
 ```
-The executable file will be named `tasp` and located in tsp/
+The executable file will be named `tasp` and located in tasp/ repository.
 
 To install, perform the following commands:
 ```bash
-git clone https://github.com/horki-at/tsp
+git clone https://github.com/horki-at/tasp
 cd tsp/
 make install
 ```
