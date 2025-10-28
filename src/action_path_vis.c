@@ -1,6 +1,6 @@
 #include "main.ih"
 
-void action_solve_vis(Config const *config, Graph graph)
+void action_path_vis(Config const *config, Graph graph)
 {
 	FILE *out = fopen("data", "w");
 	if (!out)

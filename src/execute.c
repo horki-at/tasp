@@ -3,7 +3,8 @@
 static void (*action_dispatch[])(Config const *, Graph) = {
   &action_plot,                 // ACTION_PLOT
   &action_solve,                // ACTION_SOLVE
-  &action_solve_vis,            // ACTION_SOLVE_VIS
+  &action_path,                 // ACTION_PATH
+  &action_path_vis,             // ACTION_PATH_VIS
   &action_graph,                // ACTION_GRAPH
   &action_graph_vis,            // ACTION_GRAPH_VIS
   &action_graph_vis_nol,        // ACTION_GRAPH_VIS_NOL

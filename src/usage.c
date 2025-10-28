@@ -21,8 +21,9 @@ Action: <required>                                                       \n\
   --action (-A) str                                                      \n\
     Where str:                                                           \n\
       plot          - plot the cost versus temperature                   \n\
-      solve         - print the found path                               \n\
-      solve_vis     - visualize the found path                           \n\
+      solve         - print the distance of the found path               \n\
+      path          - print the found path                               \n\
+      path_vis      - visualize the found path                           \n\
       graph         - print the graph being analyzed (DEFAULT)           \n\
       graph_vis     - visualize the graph being analyzed (with labels)   \n\
       graph_vis_nol - visualize the graph being analyzed (no labels)     \n\

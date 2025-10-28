@@ -16,8 +16,10 @@ static Action opt_to_action(const char *str)
     return ACTION_PLOT;
   if (strcmp(str, "solve") == 0)
     return ACTION_SOLVE;
-  if (strcmp(str, "solve_vis") == 0)
-    return ACTION_SOLVE_VIS;
+  if (strcmp(str, "path") == 0)
+    return ACTION_PATH;
+  if (strcmp(str, "path_vis") == 0)
+    return ACTION_PATH_VIS;
   if (strcmp(str, "graph") == 0)
     return ACTION_GRAPH;
   if (strcmp(str, "graph_vis") == 0)
@@ -35,7 +37,7 @@ static Config s_config = {			// default configuration
 	.mode       = MODE_RANDOM,
   .action     = ACTION_GRAPH,
 	.seed       = 69,
-	.size       = 1000,
+	.size       = 50,
 	.min        = -100,
 	.max        = 100,
 	.T          = 1000.0f,

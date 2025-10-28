@@ -11,8 +11,9 @@
 typedef enum
 {
 	ACTION_PLOT,									// plot temperature - cost
-	ACTION_SOLVE,                 // print the resulting path
-	ACTION_SOLVE_VIS,             // visualize the resulting path
+	ACTION_SOLVE,                 // print the distance of the found path
+  ACTION_PATH,                  // print the resulting path
+	ACTION_PATH_VIS,              // visualize the resulting path
 	ACTION_GRAPH,									// print the resulting graph
 	ACTION_GRAPH_VIS,							// visualize the resulting graph (with labels)
   ACTION_GRAPH_VIS_NOL,         // visualize the resulting graph (no labels)
@@ -54,7 +55,8 @@ void execute(Config const *config);
 Graph graph_create(Config const *config); 
 void action_plot(Config const *config, Graph graph);
 void action_solve(Config const *config, Graph graph);
-void action_solve_vis(Config const *config, Graph graph);
+void action_path(Config const *config, Graph graph);
+void action_path_vis(Config const *config, Graph graph);
 void action_graph(Config const *config, Graph graph);
 void action_graph_vis(Config const *config, Graph graph);
 void action_graph_vis_nol(Config const *config, Graph graph);
