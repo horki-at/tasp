@@ -1,7 +1,8 @@
 build/
 
-*.out
 *.o
+*.out
 *.gch
-*/*.o
-*/*.gch
+**/*.o
+**/*.out
+**/*.gch

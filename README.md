@@ -1,13 +1,3 @@
-# Description
-
-This program solved the travelling salesman problem using simulated annealing.
-
-The graph consists of vertices on the 2D grid (x, y). All vertices are 
-connected with each other. To start using the program, study the help-page:
-``` bash
-$ tsp --help
-```
-
 # How to install
 
 # Todo
@@ -16,12 +6,19 @@ $ tsp --help
 - [x] implement simulated annealing
 - [x] gnuplot
 - [x] argument parsing
-- [ ] fix Makefile precompile headers
-- [ ] implement actions: plot, solve, solve\_vis, graph, graph\_vis
-- [ ] implement the lower bound (via the minimum spanning tree)
+- [x] fix Makefile precompile headers
+- [x] implement actions
+  - [x] plot
+  - [x] solve
+  - [x] solve_vis
+  - [x] graph
+  - [x] graph_vis
+  - [x] graph_vis_nol
+  - [x] distances
+- [x] output files option
+- [ ] install script or make rule, + cleaner github repo
 - [ ] write the report, mention
   - [ ] an example
   - [ ] this github page
   - [ ] proof why simulated annealing works
   - [ ] the performance of simulated annealing
-- [ ] install script or make rule

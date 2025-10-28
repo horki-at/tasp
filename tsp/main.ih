@@ -1,5 +1,6 @@
 #include "graph/graph.h"
 #include "solve/solve.h"
+#include "path/path.h"
 
 #include <time.h>
 #include <stdlib.h>
@@ -13,8 +14,12 @@ typedef enum
 	ACTION_SOLVE,                 // print the resulting path
 	ACTION_SOLVE_VIS,             // visualize the resulting path
 	ACTION_GRAPH,									// print the resulting graph
-	ACTION_GRAPH_VIS,							// visualize the resulting graph
+	ACTION_GRAPH_VIS,							// visualize the resulting graph (with labels)
+  ACTION_GRAPH_VIS_NOL,         // visualize the resulting graph (no labels)
+  ACTION_DISTANCES,             // print the distances matrix of the graph
+  ACTION_INVALID,
 } Action;
+
 
 typedef enum 
 {
@@ -38,9 +43,21 @@ typedef struct
 	float T_aim;									// desired temperature for SA
 	size_t m;											// m-parameter for SA
 	size_t noimpr_aim;            // desired #iterations with no improvement
+  char *output;                 // .png file where vis will be displayed
 } Config;
 
 void usage(char const *progname);
 Config parse_arguments(int argc, char **argv); 
 
-void execute(Config config);
+void execute(Config const *config);
+
+Graph graph_create(Config const *config); 
+void action_plot(Config const *config, Graph graph);
+void action_solve(Config const *config, Graph graph);
+void action_solve_vis(Config const *config, Graph graph);
+void action_graph(Config const *config, Graph graph);
+void action_graph_vis(Config const *config, Graph graph);
+void action_graph_vis_nol(Config const *config, Graph graph);
+void action_distances(Config const *config, Graph graph);
+
+void run_gnuplot(char const *script, char const *outfile);

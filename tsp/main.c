@@ -9,6 +9,6 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
-	execute(config);
+	execute(&config);
 	return 0;
 }

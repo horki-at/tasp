@@ -9,13 +9,5 @@ void graph_display(Graph graph)
 	printf("Cities:\n");
 	for (size_t i = 0; i != graph.size; ++i)
 		printf("%zu: (x=%d, y=%d)\n", i, graph.data[i].x, graph.data[i].y);
-
-	printf("Distance:\n");
-	for (size_t i = 0; i != graph.size; ++i)
-	{
-		for (size_t j = 0; j != graph.size; ++j)
-			printf("%.2f ", graph.distance[i * graph.size + j]);
-		printf("\n");
-	}
 	printf("===========================================\n");
 }

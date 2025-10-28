@@ -14,7 +14,8 @@
 // - noimpr_aim: desired #iterations without improvement.
 // - m: #iterations to be performed per one temperature value.
 // - out: stream to store all (temp, cost) pairs for plotting.
-void solve(Graph graph, float T, float T_aim, size_t noimpr_aim, size_t m,
-					 FILE *out);
+// Returns: the best path
+size_t *sim_annealing(Graph graph, float T, float T_aim, size_t noimpr_aim,
+                      size_t m, FILE *out);
 
 #endif

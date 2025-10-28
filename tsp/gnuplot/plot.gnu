@@ -1,5 +1,5 @@
-set terminal png
-set output "result.png"
+set terminal pngcairo size 780,780
+set output outfile
 
 set xlabel "Temperature"
 set ylabel "Path cost"

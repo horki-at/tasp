@@ -10,20 +10,42 @@ static Mode opt_to_mode(const char *str)
 	return MODE_INVALID;
 }
 
+static Action opt_to_action(const char *str)
+{
+  if (strcmp(str, "plot") == 0)
+    return ACTION_PLOT;
+  if (strcmp(str, "solve") == 0)
+    return ACTION_SOLVE;
+  if (strcmp(str, "solve_vis") == 0)
+    return ACTION_SOLVE_VIS;
+  if (strcmp(str, "graph") == 0)
+    return ACTION_GRAPH;
+  if (strcmp(str, "graph_vis") == 0)
+    return ACTION_GRAPH_VIS;
+  if (strcmp(str, "graph_vis_nol") == 0)
+    return ACTION_GRAPH_VIS_NOL;
+  if (strcmp(str, "distances") == 0)
+    return ACTION_DISTANCES;
+
+  return ACTION_INVALID;
+}
+
 static Config s_config = {			// default configuration 
 	.ok         = 1,
 	.mode       = MODE_RANDOM,
+  .action     = ACTION_GRAPH,
 	.seed       = 69,
 	.size       = 1000,
-	.min        = -1000,
-	.max        = 1000,
+	.min        = -100,
+	.max        = 100,
 	.T          = 1000.0f,
 	.T_aim      = 0.4f,
 	.m          = 10,
 	.noimpr_aim = 1000,
+  .output     = "result.png",
 };
 
-static char const short_options[] = "hs:S:n:x:t:T:m:i:M:";
+static char const short_options[] = "hs:S:n:x:t:T:m:i:M:o:A:";
 static struct option long_options[] = {
 	{"help",      no_argument,       0, 'h'},
 	{"seed",      required_argument, 0, 's'},
@@ -35,6 +57,8 @@ static struct option long_options[] = {
 	{"mParam",    required_argument, 0, 'm'},
 	{"noimprAim", required_argument, 0, 'i'},
 	{"mode",      required_argument, 0, 'M'},
+  {"output",    required_argument, 0, 'o'},
+  {"action",    required_argument, 0, 'A'},
 	{0, 0, 0, 0}
 };
 
@@ -42,7 +66,6 @@ Config parse_arguments(int argc, char **argv)
 {
 	if (argc == 1)								// no arguments provided, default config
 		return s_config;
-
 
 	while (1)											// while we can parse
 	{
@@ -105,6 +128,14 @@ Config parse_arguments(int argc, char **argv)
 			if (s_config.mode == MODE_INVALID)
 				s_config.ok = 0;
 			break;
+    case 'o':
+      s_config.output = strdup(optarg);
+      break;
+    case 'A':
+      s_config.action = opt_to_action(optarg);
+      if (s_config.action == ACTION_INVALID)
+        s_config.ok = 0;
+      break;
 		default:
 			printf("?? getopt returned character code 0%o ??\n", short_opt);
 		}

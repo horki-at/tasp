@@ -1,7 +1,7 @@
 #include "solve.ih"
 
-void solve(Graph graph, float T, float T_aim, size_t noimpr_aim, size_t m,
-					 FILE *out)
+size_t *sim_annealing(Graph graph, float T, float T_aim, size_t noimpr_aim,
+                      size_t m, FILE *out)
 {
 	size_t *best      = path_init(graph.size); 
 	size_t *candidate = path_init(graph.size);
@@ -11,7 +11,8 @@ void solve(Graph graph, float T, float T_aim, size_t noimpr_aim, size_t m,
 	
 	while (T > T_aim && noimpr < noimpr_aim) 
 	{
-		fprintf(out, "%f %f\n", T, best_cost);
+    if (out)
+      fprintf(out, "%f %f\n", T, best_cost);
 
 		size_t impr = 0;						// #iterations with improvement for T
 		
@@ -31,5 +32,5 @@ void solve(Graph graph, float T, float T_aim, size_t noimpr_aim, size_t m,
 	}
 
 	free(candidate);
-	free(best);
+  return best;
 }
