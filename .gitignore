@@ -1,5 +1,7 @@
 build/
 
+tasp
+
 *.o
 *.out
 *.gch
