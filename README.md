@@ -6,7 +6,7 @@ Make sure you read the `--help` page. Below, I present several examples of usage
 
 ### Basic (randomly generated dataset)
 ```bash
-tasp --output="basic_solve_vis.png" -Asolve_vis
+tasp --output="basic_solve_vis.png" -path_vis
 ```
 This command uses the default parameters (see the help page):
 - Temperature: 1000
@@ -15,9 +15,10 @@ This command uses the default parameters (see the help page):
 - Vertex count: 50
 - Coordinate range: -100..100
 - M-parameter: 10
+
 to generate a random graph, and solves it. The command produces an image (basic_solve_vis.png) with the found path visualized. If we also want to plot the steps the simulated annealing performed to find the path, execute:
 ```bash
-tasp -Aplot
+tasp --output="basic_plot.png" -Aplot
 ```
 
 <img src="img/basic_solve_vis.png" width=350>

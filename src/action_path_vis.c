@@ -17,8 +17,8 @@ void action_path_vis(Config const *config, Graph graph)
     fprintf(out, "%d %d %zu\n", graph.data[i].x, graph.data[i].y, i);
                                 // write the path into out
   fprintf(out, "\n");
-  for (size_t i = 0; i != graph.size; ++i)
-    fprintf(out, "%zu\n", solution[i]);
+  for (size_t i = 0; i != graph.size + 1; ++i)
+    fprintf(out, "%zu\n", solution[i % graph.size]); // include the start vertex
 
   if (out)
     fclose(out);
