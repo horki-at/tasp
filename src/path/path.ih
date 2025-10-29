@@ -6,11 +6,11 @@
 
 typedef struct
 {
-	size_t idx1;
-	size_t idx2;
+  size_t idx1;
+  size_t idx2;
 } Pair;
 
-void swap(size_t *a, size_t *b);	// swap two size_t numbers
+void swap(size_t *a, size_t *b);  // swap two size_t numbers
 
 Pair get_random_pair(size_t size);
 

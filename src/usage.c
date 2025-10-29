@@ -1,6 +1,6 @@
 #include "main.ih"
 
-																// see parse_arguments.c for long_options
+                                // see parse_arguments.c for long_options
 static char const s_usage_info[] = "Usage: %s [OPTIONS] -A action        \n\
 Options: <optional>                                                      \n\
   --help      (-h)      - displays this message.                         \n\
@@ -31,5 +31,5 @@ Action: <required>                                                       \n\
 
 void usage(char const *progname)
 {
-	printf(s_usage_info, progname);
+  printf(s_usage_info, progname);
 }

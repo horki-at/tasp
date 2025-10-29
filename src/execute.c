@@ -13,10 +13,10 @@ static void (*action_dispatch[])(Config const *, Graph) = {
 
 void execute(Config const *config)
 {
-	srand(config->seed);
+  srand(config->seed);
   Graph graph = graph_create(config);
 
   (*action_dispatch[config->action])(config, graph);
   
-	graph_destroy(graph);
+  graph_destroy(graph);
 }
